@@ -9,13 +9,13 @@ body {
   height: 100vh;
   place-items: center;
   display: grid;
-  background-color: black;
+  font-family: "Rubik", sans-serif;
 }
 .wrapper {
   height: 640px;
   width: 640px;
   border-radius: 50%;
-  background-color: rgb(168, 162, 162);
+  background-color: beige;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,24 +30,19 @@ body {
   height: 600px;
   width: 600px;
   border-radius: 50%;
-  /* From https://css.glass */
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    180deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(28, 0, 131, 1) 100%
-  );
+  background: rgb(244, 244, 227);
+
   color: rgb(193, 185, 185);
   position: relative;
-  border: 4px solid gray;
+  border: 2px solid rgb(195, 195, 175);
 }
 #clock::after {
   content: "";
   position: absolute;
-  background-color: red;
+  background-color: #603808;
   z-index: 11;
-  width: 15px;
-  height: 15px;
+  width: 28px;
+  height: 28px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -61,7 +56,8 @@ p {
   height: 100%;
   text-align: center;
   transform: rotate(var(--rotation));
-  font-size: 2.2rem;
+  font-size: 4.2rem;
+  color: #603808;
 }
 
 #num1 {
@@ -102,26 +98,42 @@ p {
   position: absolute;
   bottom: 50%;
   left: 50%;
-  transform-origin: bottom;
+  transform-origin: bottom left;
   z-index: 10;
   transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+  border-radius: 10px;
 }
 #secondHand {
   width: 3px;
   height: 45%;
-  background-color: red;
-  rotate: 33deg;
+  background-color: #b08968;
+  rotate: 0deg;
 }
 #minuteHand {
   width: 7px;
-  height: 40%;
-  background-color: black;
-  rotate: 99deg;
+  height: 45%;
+  background-color: #9c6644;
+  rotate: 0deg;
 }
 
 #hourHand {
   width: 10px;
   height: 35%;
-  background-color: black;
-  rotate: 234deg;
+  background-color: #7f5539;
+  rotate: 0deg;
+}
+
+.animate {
+  animation-name: rotate;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
